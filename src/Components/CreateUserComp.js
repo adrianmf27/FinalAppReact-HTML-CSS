@@ -103,7 +103,7 @@ let CreateUserComp = (props) => {
                 </div>
                 {error.email && <p className="errorForm">{error.email}</p>}
                 <div className="form-group">
-                    <input type="text" placeholder="enter your password" onChange={changeUserPass}></input>
+                    <input type="password" placeholder="enter your password" onChange={changeUserPass}></input>
                 </div>
                 {error.password && <p className="errorForm">{error.password}</p>}
                 <button onClick={clickCreate}>Create account</button>
