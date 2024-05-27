@@ -11,9 +11,9 @@ let LoginUserComp = (props) => {
 
     let [name, changeName] = useState(null)
     let [email, changeEmail] = useState(null)
-    let [message, setMessage] = useState(null)
+    let [password, changePassword] = useState(null)
 
-    let [password, changePassword] = useState("")
+    let [message, setMessage] = useState(null)    
     let [error, setError] = useState({})
 
     let navigate = useNavigate()
@@ -78,7 +78,6 @@ let LoginUserComp = (props) => {
             }            
 
             setLogin(true)
-            navigate("/myItems")
         }
         else
         {
