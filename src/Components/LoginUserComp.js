@@ -78,6 +78,7 @@ let LoginUserComp = (props) => {
             }            
 
             setLogin(true)
+            navigate("/myPresents")
         }
         else
         {

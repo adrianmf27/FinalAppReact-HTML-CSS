@@ -12,10 +12,10 @@ let MyPresentsComp = (props) => {
     let navigate = useNavigate()
 
     useEffect(() => {
-        //getPresens();
+        getPresens()
     }, [])
 
-    /*let getPresens = async () => {
+    let getPresens = async () => {
         let response = await fetch(backendUrl + "/presents?apiKey=" + localStorage.getItem("apiKey"), {
             method: "GET",
             headers: {"Content-Type" : "application/json"}
@@ -28,15 +28,17 @@ let MyPresentsComp = (props) => {
         }
         else
         {
-            setMessage("Error obtaining items")
+            let jsonData = await response.json()
+            setMessage(jsonData.error)
         }
-    }*/
+    }
 
     let onClickDeleteItem = async (id) => {
         let response = await fetch(backendUrl + "/presents/" + id + "?apiKey=" 
             + localStorage.getItem("apiKey"), { method : "DELETE" })
         
-        if(response.ok){
+        if(response.ok)
+        {
             let updatedPresents = presents.filter(present => present.id != id)
             setPresents(updatedPresents)
             createNotification("Present succesfully deleted")
@@ -65,10 +67,13 @@ let MyPresentsComp = (props) => {
                                 <h3 className="name">{present.name}</h3>
                                 <h3 className="description">Description: {present.description}</h3>
                                 <h3 className="url">URL: {present.url}</h3>
-                                <h3 className="price">Price: {present.price}</h3>
-                                <h3 className="choosenBy">Choosen by: {present.choosenBy}</h3>
-                                <button onClick={() => {onClickDeleteItem(present.id)}}>Delete Item</button>
+                                <h3 className="price">Price: {present.price} €</h3>
+                                <h3 className="choosenBy">
+                                    Choosen by: {present.choosenBy === "" 
+                                        || present.choosenBy == null ? "No one" : present.choosenBy}
+                                </h3>
                                 <button onClick={() => {onClickEditItem(present.id)}}>Edit Item</button>
+                                <button onClick={() => {onClickDeleteItem(present.id)}}>Delete Item</button>                                
                             </div>      
                         </Link>                                          
                     )
