@@ -55,7 +55,7 @@ let MyFriendsComp = (props) => {
 
     return (
         <div>
-            <h2>My Presents</h2>
+            <h2>My friends</h2>
             {message !== "" && <h3 className="errorMessage">{message}</h3>}
 
             <div className="item-list">

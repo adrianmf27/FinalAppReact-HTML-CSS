@@ -12,6 +12,7 @@ import MyPresentsComp from './Components/MyPresentsComp';
 import EditPresentComp from './Components/EditPresentComp';
 import AddFriendComp from './Components/AddFriendComp';
 import MyFriendsComp from './Components/MyFriendsComp';
+import GivePresentComp from './Components/GivePresentComp';
 
 function App() {
   let [notif, setNotif] = useState("")
@@ -44,8 +45,9 @@ function App() {
           {!login && <li><Link to="/login">Log In</Link></li>}
           {login && <li><Link to="/presents">Create Present</Link></li>}  
           {login && <li><Link to="/myPresents">My Presents</Link></li>}   
-          {login && <li><Link to="/addFriend">Add a friend</Link></li>}  
+          {login && <li><Link to="/addFriend">Add friend</Link></li>}  
           {login && <li><Link to="/myFriends">My friends</Link></li>}  
+          {login && <li><Link to="/givePresent">Give present!</Link></li>}  
           {login && <li><Link to="#" onClick={disconnect}>Disconnect</Link></li>}  
         </ul>
       </nav>
@@ -66,6 +68,7 @@ function App() {
         <Route path="/editPresents" element={<EditPresentComp createNotification={createNotif} />}/>
         <Route path="/addFriend" element={<AddFriendComp createNotification={createNotif} />}/>
         <Route path="/myFriends" element={<MyFriendsComp createNotification={createNotif} />}/>
+        <Route path="/givePresent" element={<GivePresentComp createNotification={createNotif} />}/>
       </Routes>
     </div>
   )
