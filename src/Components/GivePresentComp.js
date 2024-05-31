@@ -1,7 +1,6 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { emailPattern } from "../Utils"
 import { backendUrl } from "../Globals"
 

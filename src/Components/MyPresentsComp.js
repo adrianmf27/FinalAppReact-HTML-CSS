@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, } from "react-router-dom"
 import { backendUrl } from "../Globals"
 
 let MyPresentsComp = (props) => {
@@ -50,8 +50,8 @@ let MyPresentsComp = (props) => {
         }
     }
 
-    let onClickEditItem = async (id) => {
-        navigate("/present/edit/" + id)
+    let onClickEditItem = (id) => {
+        navigate("/edit/" + id)
     }
 
     return (
@@ -62,20 +62,18 @@ let MyPresentsComp = (props) => {
             <div className="item-list">
                 { presents.map (present => 
                     (
-                        <Link to={"/present/" + present.id} key={present.id}>
-                           <div className="item">
-                                <h3 className="name">{present.name}</h3>
-                                <h3 className="description">Description: {present.description}</h3>
-                                <h3 className="url">URL: {present.url}</h3>
-                                <h3 className="price">Price: {present.price} €</h3>
-                                <h3 className="choosenBy">
-                                    Choosen by: {present.choosenBy === "" 
-                                        || present.choosenBy == null ? "No one" : present.choosenBy}
-                                </h3>
-                                <button onClick={() => {onClickEditItem(present.id)}}>Edit Item</button>
-                                <button onClick={() => {onClickDeleteItem(present.id)}}>Delete Item</button>                                
-                            </div>      
-                        </Link>                                          
+                        <div className="item">
+                            <h3 className="name">{present.name}</h3>
+                            <h3 className="description">Description: {present.description}</h3>
+                            <h3 className="url">URL: {present.url}</h3>
+                            <h3 className="price">Price: {present.price} €</h3>
+                            <h3 className="choosenBy">
+                                Choosen by: {present.choosenBy === "" 
+                                    || present.choosenBy == null ? "No one" : present.choosenBy}
+                            </h3>                                    
+                            <button onClick={() => {onClickEditItem(present.id)}}>Edit Item</button>
+                            <button onClick={() => {onClickDeleteItem(present.id)}}>Delete Item</button>   
+                        </div>                                      
                     )
                 )}
             </div>

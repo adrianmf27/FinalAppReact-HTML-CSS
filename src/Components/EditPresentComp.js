@@ -41,7 +41,7 @@ let EditPresentComp = (props) => {
     }
 
     let clickEdit= async () => {
-        let res = await fetch(backendUrl + "/items/" + presentId 
+        let res = await fetch(backendUrl + "/presents/" + presentId 
             + "?apiKey=" + localStorage.getItem("apiKey"), {
                 method: "PUT",
                 headers: {"Content-Type" : "application/json"},
@@ -51,7 +51,7 @@ let EditPresentComp = (props) => {
         if (res.ok)
         {
             createNotification("Item succesfully edited")
-            navigate("/myItems")
+            navigate("/myPresents")
         }
         else
         {

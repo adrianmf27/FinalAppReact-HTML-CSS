@@ -75,7 +75,7 @@ let CreatePresentComp = (props) => {
 
     return (
         <div>
-            <h2>Create Item</h2>
+            <h2>Create Presents</h2>
             {message !== "" && <h3 className="errorMessage">{message}</h3>}
 
             <div className = "center-box">

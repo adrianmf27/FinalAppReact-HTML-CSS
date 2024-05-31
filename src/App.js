@@ -21,6 +21,7 @@ function App() {
   let navigate = useNavigate()
 
   useEffect(() => {
+    navigate("/")
     //setLogin(false)
   }, [])  
   
@@ -65,7 +66,7 @@ function App() {
         <Route path="/login" element={<LoginUserComp setLogin={setLogin}/>}/>
         <Route path="/presents" element={<CreatePresentComp createNotification={createNotif} />}/>
         <Route path="/myPresents" element={<MyPresentsComp createNotification={createNotif} />}/>
-        <Route path="/editPresents" element={<EditPresentComp createNotification={createNotif} />}/>
+        <Route path="/edit/:presentId" element={<EditPresentComp createNotification={createNotif} />}/>
         <Route path="/addFriend" element={<AddFriendComp createNotification={createNotif} />}/>
         <Route path="/myFriends" element={<MyFriendsComp createNotification={createNotif} />}/>
         <Route path="/givePresent" element={<GivePresentComp createNotification={createNotif} />}/>
