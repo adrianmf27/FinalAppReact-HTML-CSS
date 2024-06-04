@@ -149,7 +149,8 @@ button:hover {
 .item .description,
 .item .url,
 .item .price,
-.item .choosenBy {
+.item .choosenBy,
+.item .listId {
   color: #666;
 }
 

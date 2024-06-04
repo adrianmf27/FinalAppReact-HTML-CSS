@@ -37,6 +37,10 @@ let CreatePresentComp = (props) => {
             updatedErrors.price = "Price must be a positive number"
         }
 
+        if(present.listid < 0 || present.listid == ""){
+            updatedErrors.price = "List identifier must be correct"
+        }
+
         setError(updatedErrors)
     }
 
@@ -102,6 +106,12 @@ let CreatePresentComp = (props) => {
                         onChange={e => changeProperty("price", e)}></input>
                 </div>
                 {error.price && <p className="errorForm">{error.price}</p>}
+
+                <div className="form-group">
+                    <input type="text" placeholder="listId" 
+                        onChange={e => changeProperty("listId", e)}></input>
+                </div>
+                {error.listId && <p className="errorForm">{error.listId}</p>}
 
                 <button onClick={clickCreate}>Create Present</button>
             </div>

@@ -111,6 +111,7 @@ let GivePresentComp = (props) =>{
                             <h3 className="description">Description: {present.description}</h3>
                             <h3 className="url">URL: {present.url}</h3>
                             <h3 className="price">Price: {present.price} €</h3>
+                            <h3 className="listId">List identifier: {present.listId}</h3>
                             <button onClick={() => {onClickChoose(present.id)}}>Choose</button>                              
                         </div>                                              
                     )

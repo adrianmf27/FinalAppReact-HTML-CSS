@@ -9,6 +9,7 @@ import { emailPattern } from "../Utils"
 let AddFriendComp = (props) => {
     let {createNotification} = props
     let [emailFriend, changeEmailFriend] = useState(null)
+    let [listIdentifier, changeListIdentifier] = useState(null)
 
     let [error, setError] = useState({})
     let [message, setMessage] = useState(null)
@@ -28,6 +29,11 @@ let AddFriendComp = (props) => {
             updatedErrors.email = "Incorrect email format"
         }
 
+        if(listIdentifier == "")
+        {
+                updatedErrors.listId = "Incorrect list identifier"
+        }
+
         setError(updatedErrors)
     }
 
@@ -36,11 +42,16 @@ let AddFriendComp = (props) => {
         changeEmailFriend(emailFriend)
     }
 
+    let changeListId = (e) => {
+        let listId = e.currentTarget.value
+        changeListIdentifier(listId)
+    }
+
     let clickAddFriend = async (e) => {
         let res = await fetch(backendUrl + "/friends?apiKey=" + localStorage.getItem("apiKey"), {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
-            body: JSON.stringify({ email : emailFriend })
+            body: JSON.stringify({ email : emailFriend, listId : listIdentifier })
         })
 
         if (res.ok)
@@ -76,6 +87,13 @@ let AddFriendComp = (props) => {
                         onChange={changeFriendEmail}></input>
                 </div>
                 {error.email && <p className="errorForm">{error.email}</p>}
+
+                <div className="form-group">
+                    <input type="text" placeholder="list identifier" 
+                        onChange={changeListId}></input>
+                </div>
+                {error.listId && <p className="errorForm">{error.listId}</p>}
+                
                 <button onClick={clickAddFriend}>Add Friend</button>
             </div>
         </div>

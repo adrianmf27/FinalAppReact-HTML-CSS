@@ -86,6 +86,11 @@ let EditPresentComp = (props) => {
                         onChange={e => changeProperty("price", e)}></input>
                 </div>
 
+                <div className="form-group">
+                    <input type="text" placeholder="list identifier" 
+                        onChange={e => changeProperty("listId", e)}></input>
+                </div>
+
                 <button onClick={clickEdit}>Edit Present</button>
             </div>
             
